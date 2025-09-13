@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+      transition: background 0.5s;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(20, 20, 20, 0.95);
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 600;
+      padding: 12px 25px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.05);
+    }
+
+    nav a:hover {
+      background: #1E90FF;
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #1E90FF;
+    }
+
+    .content {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      min-height: 400px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .link {
+      display: inline-flex;
+      align-items: center;
+      margin: 15px 10px;
+      font-size: 22px;
+      color: #1E90FF;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .link:hover {
+      color: #fff;
+      background: #1E90FF;
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(30,144,255,0.6);
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 12px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .link {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" onclick="showTab('emulador')">Emulador</a>
+      <a href="#" onclick="showTab('apk')">APK</a>
+      <a href="#" onclick="showTab('outros')">Outros</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <div id="emulador" class="tab-content active">
+      <h1>Emuladores</h1>
+      <a class="link" href="https://du2.devuploads.com/d/3ijvcu3v5mo5kx66xkgq2po5cqlue23wzpc7cg7tzsvr7rntmgsdoygyxlsoldflpsbl6stm/gamehub_-_Hollow_Knight_silksong.zip" target="_blank">
+        <img src="https://i.imgur.com/oXnE1RC.png" alt="Silksong Logo" class="logo">Hollow Knight Silksong para GameHub
+      </a>
+      <a class="link" href="https://gamehub.xiaoji.com/download/" target="_blank">
+        <img src="https://i.imgur.com/k5q3M8x.png" alt="GameHub Logo" class="logo">GameHub Oficial
+      </a>
+    </div>
+
+    <div id="apk" class="tab-content">
+      <h1>APKs</h1>
+      <a class="link" href="https://encurtador.com.br/2XyHC" target="_blank">
+        <img src="https://i.imgur.com/k5q3M8x.png" alt="GameHub Logo" class="logo">Hollow Knight APK
+      </a>
+    </div>
+
+    <div id="outros" class="tab-content">
+      <h1>Outros</h1>
+      <a class="link" href="https://bloodorca.github.io/hollow/" target="_blank">
+        <img src="https://i.imgur.com/k5q3M8x.png" alt="GameHub Logo" class="logo">Site para modificar o save do Hollow Knight
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const clickURL = 'https://www.soundjay.com/button/sounds/button-16.mp3';
+
+    document.querySelectorAll('.link').forEach(button => {
+      button.addEventListener('click', () => {
+        new Audio(clickURL).play();
+      });
+    });
+
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+      new Audio(clickURL).play();
+    }
+  </script>
+</body>
+</html>
